@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Menu {
 
+    public static void main(String[] args) {
+        Menu mainMenu = new Menu();
+    }
+
     public Menu() {
         System.out.println("\nWelcome to Academy Casino's Black Jack!\n" +
                             "\nPlease make a selection: \n");
@@ -22,7 +26,7 @@ public class Menu {
         switch (response) {
             case 1: PlayingCardGame playGame = new PlayingCardGame(); break;
             case 2: GameRules rules = new GameRules();  break;
-            case 3: break;
+            case 3: HighScore scores = new HighScore(); break;
             case 4: System.exit(0); break;
             default:
                 try{
@@ -32,13 +36,6 @@ public class Menu {
                 catch (NumberFormatException a){
                     System.out.print("Invalid input! Must enter 1, 2, 3 or 4");             //TODO: Fix error exception!!
                 }
-
-                //System.out.println("Invalid input! Must enter 1, 2, 3 or 4"); break;
         }
     }
-
-    public static void main(String[] args) {
-        Menu mainMenu = new Menu();
-    }
-
 }

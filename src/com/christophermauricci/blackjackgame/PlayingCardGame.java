@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PlayingCardGame {
 
     //TODO: Add option to exit game and save highscore (max earnings) to separate text file
-    //TODO: Menu to choose: show rules, show high score
+    //TODO: Menu to choose: show high score
 
     public PlayingCardGame() {
         System.out.println("Welcome to Academy Casino's Black Jack!");
