@@ -2,7 +2,6 @@ package com.christophermauricci.blackjackgame;
 
 import java.util.Scanner;
 
-//Tutorials class name is Blackjack
 public class PlayingCardGame {
 
     //TODO: Add option to exit game and save highscore (max earnings) to separate text file
@@ -16,7 +15,7 @@ public class PlayingCardGame {
         deck.shuffle();
 
         //Create player and dealer hands
-        PlayingCardDeck playerDeck = new PlayingCardDeck();                 //TODO: Refactor to playerCards or playerHand instead?
+        PlayingCardDeck playerHand = new PlayingCardDeck();                 //TODO: Refactor to playerCards or playerHand instead?
         PlayingCardDeck dealerDeck = new PlayingCardDeck();                 //TODO: Refactor to dealerCards or dealerHand instead?
 
         double playerMoney = 100.00;
@@ -34,16 +33,16 @@ public class PlayingCardGame {
             boolean endRound = false;
 
             //Dealing
-            playerDeck.draw(deck);
-            playerDeck.draw(deck);
+            playerHand.draw(deck);
+            playerHand.draw(deck);
 
             dealerDeck.draw(deck);
             dealerDeck.draw(deck);
 
             while (true) {
                 System.out.println("Your hand: ");
-                System.out.println(playerDeck.toString());
-                System.out.println("Your hand is valued at: " + playerDeck.cardsValue());
+                System.out.println(playerHand.toString());
+                System.out.println("Your hand is valued at: " + playerHand.cardsValue());
 
                 //Dealers hand, only display one of dealer's cards
                 System.out.println("Dealer's hand: " + dealerDeck.getCard(0).toString() + " and [Hidden]");         //TODO: display value of dealer's card
@@ -52,12 +51,12 @@ public class PlayingCardGame {
                 System.out.println("Do you want to (1)Hit or (2)Stand?");
                 int respone = userInput.nextInt();
                 if (respone == 1) {
-                    playerDeck.draw(deck);
-                    System.out.println("You drew: " + playerDeck.getCard(playerDeck.deckSize() -1).toString());     //most recent added card if player choose to hit
+                    playerHand.draw(deck);
+                    System.out.println("You drew: " + playerHand.getCard(playerHand.deckSize() -1).toString());     //most recent added card if player choose to hit
 
                     //If player go bust when drawing new card
-                    if(playerDeck.cardsValue() > 21) {
-                        System.out.println("Bust! Your card's value is: " + playerDeck.cardsValue());
+                    if(playerHand.cardsValue() > 21) {
+                        System.out.println("Bust! Your card's value is: " + playerHand.cardsValue());
                         playerMoney -= playerBet;
                         endRound = true;
                         break;
@@ -71,7 +70,7 @@ public class PlayingCardGame {
             System.out.println("Dealer's cards: " + dealerDeck.toString());
 
             //See who has most points
-            if (dealerDeck.cardsValue() > playerDeck.cardsValue() && !endRound) {
+            if (dealerDeck.cardsValue() > playerHand.cardsValue() && !endRound) {
                 System.out.println("Dealer wins!");                                             //TODO: Add player and dealer card values
                 playerMoney -= playerBet;
                 endRound = true;
@@ -91,12 +90,12 @@ public class PlayingCardGame {
             }
 
             //If push (a draw between player and dealer
-            if(playerDeck.cardsValue() == dealerDeck.cardsValue() && !endRound) {
+            if(playerHand.cardsValue() == dealerDeck.cardsValue() && !endRound) {
                 System.out.println("Push! No winner.");
                 endRound = true;
             }
 
-            if(playerDeck.cardsValue() > dealerDeck.cardsValue() && !endRound) {
+            if(playerHand.cardsValue() > dealerDeck.cardsValue() && !endRound) {
                 System.out.println("You win this round!");                                              //TODO: Add player and dealer card values
                 playerMoney += playerBet;
                 endRound = true;
@@ -106,7 +105,7 @@ public class PlayingCardGame {
                 endRound = true;
             }
             //Adds player's and dealer's cards back into the deck arraylist
-            playerDeck.moveAllToDeck(deck);
+            playerHand.moveAllToDeck(deck);
             dealerDeck.moveAllToDeck(deck);
             System.out.println("End of round.");
         }
