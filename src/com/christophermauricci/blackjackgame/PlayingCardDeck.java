@@ -3,8 +3,6 @@ package com.christophermauricci.blackjackgame;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.christophermauricci.blackjackgame.Value.TWO;
-
 public class PlayingCardDeck {
 
     private ArrayList<PlayingCard> playingCards;
@@ -87,7 +85,7 @@ public class PlayingCardDeck {
         }
     }
 
-    //Return total value of cards in deck
+    //Return value of each card in deck
     public int cardsValue() {
         int totalValue = 0;
         int aces = 0;
@@ -119,4 +117,16 @@ public class PlayingCardDeck {
         }
         return totalValue;
     }
+
+    public char suitValues() {
+        char uniSuit = ' ';
+        //TODO: Add code to replace suit names with unicode characters, use the getSuit method from PlayingCard
+
+        // SPADES: '\u2660'
+        //DIAMOND: '\u2666'
+        //CLUBS: '\u2663'
+        //HEARTS: '\u2764'
+        return uniSuit;
+    }
+
 }

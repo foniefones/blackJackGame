@@ -17,4 +17,8 @@ public class PlayingCard {
     public Value getValue() {
         return this.value;
     }
+
+    public Suit getSuit() {
+        return this.suit;
+    }
 }
