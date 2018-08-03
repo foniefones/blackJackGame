@@ -15,8 +15,8 @@ public class PlayingCardGame {
         deck.shuffle();
 
         //Create player and dealer hands
-        PlayingCardDeck playerHand = new PlayingCardDeck();                 //TODO: Refactor to playerCards or playerHand instead?
-        PlayingCardDeck dealerDeck = new PlayingCardDeck();                 //TODO: Refactor to dealerCards or dealerHand instead?
+        PlayingCardDeck playerHand = new PlayingCardDeck();
+        PlayingCardDeck dealerHand = new PlayingCardDeck();
 
         double playerMoney = 100.00;
         Scanner userInput = new Scanner(System.in);
@@ -36,8 +36,8 @@ public class PlayingCardGame {
             playerHand.draw(deck);
             playerHand.draw(deck);
 
-            dealerDeck.draw(deck);
-            dealerDeck.draw(deck);
+            dealerHand.draw(deck);
+            dealerHand.draw(deck);
 
             while (true) {
                 System.out.println("Your hand: ");
@@ -45,12 +45,12 @@ public class PlayingCardGame {
                 System.out.println("Your hand is valued at: " + playerHand.cardsValue());
 
                 //Dealers hand, only display one of dealer's cards
-                System.out.println("Dealer's hand: " + dealerDeck.getCard(0).toString() + " and [Hidden]");         //TODO: display value of dealer's card
+                System.out.println("Dealer's hand: " + dealerHand.getCard(0).toString() + " and [Hidden]");         //TODO: display value of dealer's card
 
                 //Player action
                 System.out.println("Do you want to (1)Hit or (2)Stand?");
-                int respone = userInput.nextInt();
-                if (respone == 1) {
+                int response = userInput.nextInt();
+                if (response == 1) {
                     playerHand.draw(deck);
                     System.out.println("You drew: " + playerHand.getCard(playerHand.deckSize() -1).toString());     //most recent added card if player choose to hit
 
@@ -62,40 +62,40 @@ public class PlayingCardGame {
                         break;
                     }
                 }
-                if (respone == 2) {
+                if (response == 2) {
                     break;
                 }
             }
             //Reveal dealer's cards
-            System.out.println("Dealer's cards: " + dealerDeck.toString());
+            System.out.println("Dealer's cards: " + dealerHand.toString());
 
             //See who has most points
-            if (dealerDeck.cardsValue() > playerHand.cardsValue() && !endRound) {
+            if (dealerHand.cardsValue() > playerHand.cardsValue() && !endRound) {
                 System.out.println("Dealer wins!");                                             //TODO: Add player and dealer card values
                 playerMoney -= playerBet;
                 endRound = true;
             }
             //Dealer have to draw at 16 and stands at 17
-            while (dealerDeck.cardsValue() < 17 && !endRound) {
-                dealerDeck.draw(deck);
-                System.out.println("Dealer draws: " + dealerDeck.getCard(dealerDeck.deckSize() -1).toString());      //most recent added card if have to draw
+            while (dealerHand.cardsValue() < 17 && !endRound) {
+                dealerHand.draw(deck);
+                System.out.println("Dealer draws: " + dealerHand.getCard(dealerHand.deckSize() -1).toString());      //most recent added card if have to draw
             }
 
-            System.out.println("Dealer's hand is valued at: " + dealerDeck.cardsValue());
+            System.out.println("Dealer's hand is valued at: " + dealerHand.cardsValue());
             //If player win
-            if (dealerDeck.cardsValue() > 21 && !endRound) {
+            if (dealerHand.cardsValue() > 21 && !endRound) {
                 System.out.println("Dealer bust! You win this round!");
                 playerMoney += playerBet;
                 endRound = true;
             }
 
             //If push (a draw between player and dealer
-            if(playerHand.cardsValue() == dealerDeck.cardsValue() && !endRound) {
+            if(playerHand.cardsValue() == dealerHand.cardsValue() && !endRound) {
                 System.out.println("Push! No winner.");
                 endRound = true;
             }
 
-            if(playerHand.cardsValue() > dealerDeck.cardsValue() && !endRound) {
+            if(playerHand.cardsValue() > dealerHand.cardsValue() && !endRound) {
                 System.out.println("You win this round!");                                              //TODO: Add player and dealer card values
                 playerMoney += playerBet;
                 endRound = true;
@@ -106,8 +106,8 @@ public class PlayingCardGame {
             }
             //Adds player's and dealer's cards back into the deck arraylist
             playerHand.moveAllToDeck(deck);
-            dealerDeck.moveAllToDeck(deck);
-            System.out.println("End of round.");
+            dealerHand.moveAllToDeck(deck);
+            System.out.println("End of round.");                                                        //TODO: Prompt player to play again or save & quit
         }
 
         System.out.println("Game over! You are out of money! xD");
