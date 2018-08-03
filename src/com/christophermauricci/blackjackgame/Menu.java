@@ -13,7 +13,7 @@ public class Menu {
                             "\n        Black Jack          " +
                             "\n===============================" +
                             "\nPress (1) to Play Black Jack" +
-                           "\nPress(2) to see rules" +
+                           "\nPress(2) to view rules" +
                             "\nPress(3) to see high scores" +
                             "\nPress(4) to exit game" +
                             "\n===============================");
@@ -21,7 +21,7 @@ public class Menu {
 
         switch (response) {
             case 1: PlayingCardGame playGame = new PlayingCardGame(); break;
-            case 2: break;
+            case 2: GameRules rules = new GameRules();  break;
             case 3: break;
             case 4: System.exit(0); break;
             default:

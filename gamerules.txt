@@ -1,0 +1,37 @@
+
+				ACADEMY CASINO'S BLACK JACK
+
+--------------------------------------------------------------------------------------
+				    General rules:
+
+	The basic premise of the game is to have a dealt hand with a value closer to
+ 	21 than that of the dealer, without goiing over 21. 
+	Only one of the dealer'scards will be "open" for the Player to, the second 
+	one is shown once the Player decides that it's turn is over. It is then 
+	decided, through which one has the closest to 21, who wins the round.
+	The dealer must hit if the combined card value in it's hand is less than 17.
+	The game is over once the Player has lost it's £.
+
+--------------------------------------------------------------------------------------
+
+					Cards:
+
+	In Black Jack, the cards are valued as follows:
+
+	* Cards from 2 through 9 are valued as their face value,
+	* 10, Jack, Queen and King are all valued at 10,
+	* The ace is valued at either 1 or 11 depening on when it's drawn.
+	  If the value of the hand is less than 10, the ace value will be 11,
+	  if the value of the hand is more than 10, the ace value will be 1.
+
+--------------------------------------------------------------------------------------
+
+					Betting:
+
+	The Player starts the game with £100 and at the start of each round, the 
+	Player is prompted to place their wager for said round. At the end of each
+	round, the corresponding amount that the Player chose to bet will either
+	be added or subtracted from the Player's betting account.
+	The amount of £ won/lost is equivalent to the amount the Player's bet.
+
+--------------------------------------------------------------------------------------
