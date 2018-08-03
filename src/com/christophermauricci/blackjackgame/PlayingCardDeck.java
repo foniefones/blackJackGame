@@ -109,7 +109,7 @@ public class PlayingCardDeck {
                 case ACE: totalValue += 1; break;
             }
         }
-        //Loop to control aces value
+        //Loop to control ace values
         for (int i =0; i < aces; i++) {
             if (totalValue > 10) {
                 totalValue += 1;
