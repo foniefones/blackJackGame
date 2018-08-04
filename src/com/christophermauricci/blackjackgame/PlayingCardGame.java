@@ -6,8 +6,6 @@ import java.util.Scanner;
 //Game logic
 public class PlayingCardGame {
 
-    //TODO: Add option to exit game and save highscore (max earnings) to separate text file @ end of game loop
-
     public PlayingCardGame() {
         System.out.println("Welcome to Academy Casino's Black Jack!");
 

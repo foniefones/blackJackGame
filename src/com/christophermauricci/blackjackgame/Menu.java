@@ -34,7 +34,7 @@ public class Menu {
                 }
 
                 catch (NumberFormatException a){
-                    System.out.print("Invalid input! Must enter 1, 2, 3 or 4");             //TODO: Fix error exception!!
+                    System.out.print("Invalid input! Must enter 1, 2, 3 or 4");             //TODO: Fix exception
                 }
         }
     }
