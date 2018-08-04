@@ -1,7 +1,9 @@
 package com.christophermauricci.blackjackgame;
 
+import java.io.*;
 import java.util.Scanner;
 
+//Game logic
 public class PlayingCardGame {
 
     //TODO: Add option to exit game and save highscore (max earnings) to separate text file @ end of game loop
@@ -106,11 +108,42 @@ public class PlayingCardGame {
             //Adds player's and dealer's cards back into the deck arraylist
             playerHand.moveAllToDeck(deck);
             dealerHand.moveAllToDeck(deck);
-            System.out.println("\nEnd of round.");                             //TODO: Prompt player to play again or save & quit here
+
+            //Give user the option to save high score and quit or play again
+            Scanner playAgainInput = new Scanner(System.in);
+            System.out.println("\nEnd of round. Would you like to play another round or save earnings? \n" +
+                                                "\n(1) Play again " +
+                                                "(2) Save earnings");
+            int playAgain = playAgainInput.nextInt();
+            if (playAgain == 1) {
+                endRound = true;
+            } else if (playAgain == 2) {
+                //If .txt file doesn't exist, create a new one to store high scores in
+                File file = new File("highscores.txt");
+                if (!file.exists()) {
+                    try {
+                        file.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                System.out.println("To save your score, please type in your name: ");
+                Scanner nameHighscore = new Scanner(System.in);
+                String name = nameHighscore.nextLine();
+
+                // Print name and earnings to file
+                try (FileWriter fw = new FileWriter("highscores.txt", true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter toHighscore = new PrintWriter(bw)) {
+                    toHighscore.println(name + " " + " £" + playerMoney + "\n");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.exit(0);
+            }
         }
-
         System.out.println("\nGame over! You are out of money! xD");
-
     }
 
 }

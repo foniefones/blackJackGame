@@ -121,7 +121,7 @@ public class PlayingCardDeck {
     //TODO: If there's time, implement method below into game
     public char suitValues() {
         char uniSuit = ' ';
-        
+
         for (PlayingCard aCardSuit : this.playingCards) {
             switch (aCardSuit.getSuit()) {
                 case CLUBS:
