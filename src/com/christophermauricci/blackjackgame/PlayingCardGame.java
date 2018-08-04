@@ -26,7 +26,7 @@ public class PlayingCardGame {
             System.out.println("You have £" + playerMoney + " left. How much would you like to bet?");
             double playerBet = userInput.nextDouble();
             if(playerBet > playerMoney) {
-                System.out.println("You cannot bet more money than you have. Please leave!");
+                System.out.println("You cannot bet more money than you have. Please leave the casino!");
                 break;
             }
             boolean endRound = false;

@@ -118,9 +118,26 @@ public class PlayingCardDeck {
         return totalValue;
     }
 
+    //TODO: If there's time, implement method below into game
     public char suitValues() {
         char uniSuit = ' ';
-        //TODO: Add code to replace suit names with unicode characters, use the getSuit method from PlayingCard
+        
+        for (PlayingCard aCardSuit : this.playingCards) {
+            switch (aCardSuit.getSuit()) {
+                case CLUBS:
+                    uniSuit = '\u2663';
+                    break;
+                case DIAMOND:
+                    uniSuit = '\u2666';
+                    break;
+                case SPADES:
+                    uniSuit = '\u2660';
+                    break;
+                case HEARTS:
+                    uniSuit = '\u2764';
+                    break;
+            }
+        }
 
         // SPADES: '\u2660'
         //DIAMOND: '\u2666'
