@@ -104,7 +104,7 @@ public class PlayingCardDeck {
                 case JACK: totalValue += 10; break;
                 case QUEEN: totalValue += 10; break;
                 case KING: totalValue += 10; break;
-                case ACE: totalValue += 1; break;
+                case ACE: totalValue += 11; break;
             }
         }
         //Loop to control ace values
@@ -118,7 +118,7 @@ public class PlayingCardDeck {
         return totalValue;
     }
 
-    //TODO: If there's time, implement method below into game
+    //TODO: If there's time, implement method below into game to print characters instead of Suit strings.
     public char suitValues() {
         char uniSuit = ' ';
 
@@ -138,11 +138,6 @@ public class PlayingCardDeck {
                     break;
             }
         }
-
-        // SPADES: '\u2660'
-        //DIAMOND: '\u2666'
-        //CLUBS: '\u2663'
-        //HEARTS: '\u2764'
         return uniSuit;
     }
 

@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 //Game logic
+//TODO: Add option to send player back to menu after game over or saved highscore
 public class PlayingCardGame {
 
     public PlayingCardGame() {
@@ -139,9 +140,11 @@ public class PlayingCardGame {
                     e.printStackTrace();
                 }
                 System.exit(0);
+                //TODO: Add code to send player back to menu instead of quiting game
             }
         }
         System.out.println("\nGame over! You are out of money! xD");
+        //TODO: Add code to send player back to menu
     }
 
 }

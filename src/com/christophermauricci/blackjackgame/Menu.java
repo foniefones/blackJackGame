@@ -8,6 +8,8 @@ public class Menu {
         Menu mainMenu = new Menu();
     }
 
+    //TODO: Add option to reload high score, to continue progress. Load from high score file (prompt user to choose which high score to load?).
+
     public Menu() {
         System.out.println("\nWelcome to Academy Casino's Black Jack!\n" +
                             "\nPlease make a selection: \n");
