@@ -124,18 +124,10 @@ public class PlayingCardDeck {
 
         for (PlayingCard aCardSuit : this.playingCards) {
             switch (aCardSuit.getSuit()) {
-                case CLUBS:
-                    uniSuit = '\u2663';
-                    break;
-                case DIAMOND:
-                    uniSuit = '\u2666';
-                    break;
-                case SPADES:
-                    uniSuit = '\u2660';
-                    break;
-                case HEARTS:
-                    uniSuit = '\u2764';
-                    break;
+                case CLUBS: break;
+                case DIAMOND: break;
+                case SPADES: break;
+                case HEARTS: break;
             }
         }
         return uniSuit;
