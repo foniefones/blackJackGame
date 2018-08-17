@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 I just want to create a conflict somewhere
 
 hehe this is a nasty conflict line
+=======
+
+
+Now, this line should create a conflict:wq
+>>>>>>> presidente
